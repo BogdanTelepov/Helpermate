@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Helpermate</string>
+    <string name="forgotten_password">Восстановление пароля</string>
+
+    <string name="invalid_email_error">Некорректная почта</string>
+    <string name="back">Назад</string>
+</resources>
