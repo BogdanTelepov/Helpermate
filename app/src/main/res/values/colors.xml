@@ -22,5 +22,6 @@
     <color name="monochrome">#323232</color>
     <color name="label_color">#8E8E93</color>
     <color name="dark_gray">#333333</color>
+    <color name="gray">#8E8E93</color>
 
 </resources>

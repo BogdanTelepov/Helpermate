@@ -153,7 +153,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="52dp"
-        android:text="Я согласен с условиями пользовательского соглашения"
         app:layout_constraintBottom_toBottomOf="@id/checkbox_agreeRules"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/checkbox_agreeRules"
