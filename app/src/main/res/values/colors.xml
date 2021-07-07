@@ -16,12 +16,15 @@
     <color name="base_light_blue">#5AC8FA</color>
     <color name="base_green">#34C759</color>
     <color name="base_yellow">#FFCC00</color>
-    <color name="base_orange">#FF832C</color>
+    <color name="base_orange">#FF8753</color>
     <color name="base_red">#FF3B30</color>
 
     <color name="monochrome">#323232</color>
+    <color name="monochrome_gray">#8E8E93</color>
     <color name="label_color">#8E8E93</color>
     <color name="dark_gray">#333333</color>
     <color name="gray">#8E8E93</color>
+
+    <color name="dark_orange">#CC7700</color>
 
 </resources>

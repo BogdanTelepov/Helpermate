@@ -22,11 +22,22 @@ class CreateAccountActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.btnCreateNewAccount.isEnabled = false
+        binding.checkboxAgreeRules.setOnCheckedChangeListener { _, isChecked ->
+            if(!isChecked){
+
+                binding.btnCreateNewAccount.setBackgroundColor(resources.getColor(R.color.dark_orange))
+            } else{
+                binding.btnCreateNewAccount.setBackgroundColor(resources.getColor(R.color.base_orange))
+            }
+            binding.btnCreateNewAccount.isEnabled = isChecked
+        }
         binding.btnCreateNewAccount.setOnClickListener {
             val intent = Intent(this, ConfirmNewAccountActivity::class.java)
             startActivity(intent)
             finish()
         }
+
         binding.tvLogin.setOnClickListener {
             val intent = Intent(this, AuthorizationActivity::class.java)
             startActivity(intent)
@@ -47,6 +58,8 @@ class CreateAccountActivity : AppCompatActivity() {
             fullText.indexOf(policy) + policy.length,
             Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
         )
+
+
         binding.tvView3.run {
             text = spannableString
             movementMethod = LinkMovementMethod.getInstance()

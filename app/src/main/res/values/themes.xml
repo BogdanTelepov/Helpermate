@@ -52,7 +52,7 @@
     <style name="label">
         <item name="android:textSize">13sp</item>
         <item name="fontFamily">@font/lato</item>
-        <item name="android:textColor">@color/monochrome</item>
+        <item name="android:textColor">@color/monochrome_gray</item>
     </style>
 
 

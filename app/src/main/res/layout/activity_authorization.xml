@@ -4,152 +4,180 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.AuthorizationActivity">
 
+    android:background="@color/base_orange"
+    tools:context=".ui.activities.AuthorizationActivity">
 
     <TextView
         android:id="@+id/tv_view1"
-        style="@style/headline_2"
+        style="@style/headline_1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="65dp"
-        android:text="Оставайтесь здоровыми вместе с нами!"
-        android:textColor="@color/base_orange"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="14dp"
+        android:text="Будь здоровым вместе с нами!"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/iv_pic1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_view2"
-        style="@style/headline_2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:text="Войдите в профиль"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/tv_view1"
-        app:layout_constraintTop_toBottomOf="@id/tv_view1" />
-
-
-    <TextView
-        android:id="@+id/tv_labelEmail"
-        style="@style/label"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Почта"
-        android:textColor="@color/label_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/tv_view2"
-        app:layout_constraintTop_toBottomOf="@id/tv_view2" />
-
-
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/textInputLayoutEmail"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="18dp"
-        android:focusable="false"
-        android:hint="Введите адрес почты"
-        app:boxStrokeColor="@color/base_orange"
-        app:boxStrokeWidth="1dp"
-        app:hintTextColor="@color/base_orange"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_labelEmail">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditTextEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <TextView
-        android:id="@+id/tv_labelPassword"
-        style="@style/label"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="Пароль"
-        android:textColor="@color/label_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/textInputLayoutEmail"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayoutEmail" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutPassword"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="18dp"
-        android:focusable="false"
-        android:hint="Введите пароль"
-        app:boxStrokeColor="@color/base_orange"
-        app:boxStrokeWidth="1dp"
-        app:endIconMode="password_toggle"
-        app:endIconTint="@color/base_orange"
-        app:hintTextColor="@color/base_orange"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_labelPassword">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <TextView
-        android:id="@+id/tv_forgetPassword"
-        style="@style/label"
+    <ImageView
+        android:id="@+id/iv_pic1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="18dp"
-        android:text="Забыли пароль?"
-        android:textStyle="bold"
+        android:src="@drawable/ic_pic10"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_view1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayoutPassword" />
+        app:layout_constraintTop_toTopOf="@+id/tv_view1" />
 
-    <Button
-        android:id="@+id/btn_login"
-        style="@style/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="18dp"
-        android:backgroundTint="@color/base_orange"
-        android:text="Войти"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_forgetPassword" />
 
-    <TextView
-        android:id="@+id/tv_registration"
-        style="@style/body_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Зарегистрироваться"
-        android:textColor="@color/base_orange"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="22dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_view1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/top_round_corner_shape"
+        android:id="@+id/innerConstraintLayout">
+
+        <TextView
+            android:id="@+id/tv_view2"
+            style="@style/headline_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Войдите в профиль"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="18dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/tv_labelEmail"
+            style="@style/label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Почта"
+            android:textColor="@color/label_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_view2"
+            app:layout_constraintTop_toBottomOf="@id/tv_view2" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/textInputLayoutEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="18dp"
+            android:focusable="false"
+            android:hint="Введите адрес почты"
+            app:boxStrokeColor="@color/base_orange"
+            app:boxStrokeWidth="1dp"
+            app:hintTextColor="@color/base_orange"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_labelEmail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/tv_labelPassword"
+            style="@style/label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Пароль"
+            android:textColor="@color/label_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textInputLayoutEmail"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayoutEmail" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="18dp"
+            android:focusable="false"
+            android:hint="Введите пароль"
+            app:boxStrokeColor="@color/base_orange"
+            app:boxStrokeWidth="1dp"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/base_orange"
+            app:hintTextColor="@color/base_orange"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_labelPassword">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/tv_forgetPassword"
+            style="@style/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="18dp"
+            android:text="Забыли пароль?"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayoutPassword" />
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="18dp"
+            android:backgroundTint="@color/base_orange"
+            android:text="Войти"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_forgetPassword" />
+
+        <TextView
+            android:id="@+id/tv_registration"
+            style="@style/body_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Зарегистрироваться"
+            android:textColor="@color/base_orange"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_login"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
