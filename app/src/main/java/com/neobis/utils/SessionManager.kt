@@ -12,6 +12,7 @@ class SessionManager(context: Context) {
 
     companion object {
         const val IS_FINISHED = "isFinished"
+        const val TYPE_OF_PERSON = "type_of_person"
     }
 
     fun onBoardingFinished() {
@@ -22,5 +23,21 @@ class SessionManager(context: Context) {
 
     fun checkOnBoarding(): Boolean {
         return prefs.getBoolean(IS_FINISHED, false)
+    }
+
+    fun saveTypeOfPerson(typeOfPerson: Int?) {
+        val editor = prefs.edit()
+        if (typeOfPerson != null) {
+            editor.putInt(TYPE_OF_PERSON, typeOfPerson)
+            editor.apply()
+        }
+    }
+
+    fun getTypeOfPerson(): Int {
+        return prefs.getInt(TYPE_OF_PERSON, 0)
+    }
+
+    fun deleteTypeOfPerson() {
+        prefs.edit().remove(TYPE_OF_PERSON).apply()
     }
 }

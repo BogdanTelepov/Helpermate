@@ -7,13 +7,13 @@ import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import com.neobis.R
 import com.neobis.databinding.ActivityConfirmNewAccountBinding
+import com.neobis.ui.activities.ChooseStatusActivity
 import com.neobis.ui.activities.forgottenPassword.ForgottenPasswordActivity
 
 class ConfirmNewAccountActivity : AppCompatActivity() {
 
 
     private lateinit var binding: ActivityConfirmNewAccountBinding
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +26,12 @@ class ConfirmNewAccountActivity : AppCompatActivity() {
         supportActionBar?.setTitle(R.string.back)
         binding.toolbar.setTitleTextAppearance(this, R.style.body_text)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        binding.btnConfirmCode.setOnClickListener {
+            val intent = Intent(this, ChooseStatusActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
 
