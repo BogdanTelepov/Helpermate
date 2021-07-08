@@ -24,7 +24,7 @@ class ThirdOnBoardingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentThirdOnBoardingBinding.inflate(layoutInflater, container, false)
         return binding.root
@@ -35,7 +35,7 @@ class ThirdOnBoardingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnNextFragment.setOnClickListener {
             (activity as OnBoardingActivity).authActivityTransition()
-            sessionManager.onBoardingFinished()
+         //   sessionManager.onBoardingFinished()
         }
 
 

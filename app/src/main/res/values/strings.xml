@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Helpermate</string>
+    <string name="app_name">Trada</string>
     <string name="forgotten_password">Восстановление пароля</string>
 
     <string name="invalid_email_error">Некорректная почта</string>

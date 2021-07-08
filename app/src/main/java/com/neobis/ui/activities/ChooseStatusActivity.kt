@@ -27,6 +27,7 @@ class ChooseStatusActivity : AppCompatActivity() {
             sessionManager.saveTypeOfPerson(typeOfPerson)
 
             startActivity(intent)
+            finish()
         }
 
         binding.ivDiabetic.setOnClickListener {
