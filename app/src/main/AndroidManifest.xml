@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabetik">
-        <activity android:name=".ui.activities.ChooseStatusActivity"></activity>
+        <activity android:name=".ui.activities.WidgetsActivity"></activity>
+        <activity android:name=".ui.activities.ChooseStatusActivity" />
         <activity android:name=".ui.activities.QuestioningActivity" />
         <activity android:name=".ui.activities.PrivatePolicyActivity" />
         <activity android:name=".ui.activities.OnBoardingActivity" />

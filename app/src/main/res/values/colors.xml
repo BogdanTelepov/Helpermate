@@ -27,4 +27,17 @@
 
     <color name="dark_orange">#CC7700</color>
 
+
+    <color name="widget_sleep_color">#E2E0FF</color>
+    <color name="widget_sugar_color">#E0EBFF</color>
+    <color name="widget_sugar_pressure">#FFE0E0</color>
+    <color name="widget_sugar_insulin">#FEE0FF</color>
+    <color name="widget_sugar_pharmacy">#D7FFB7</color>
+    <color name="widget_sugar_water">#E0F4FF</color>
+    <color name="widget_sugar_food">#FAF6D4</color>
+    <color name="widget_sugar_activities">#FAE7D4</color>
+
+    <color name="widget_text_color">#434343</color>
+
+
 </resources>

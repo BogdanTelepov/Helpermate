@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/widgets_nav_graph"
+    app:startDestination="@id/listWidgetsFragment">
+
+    <fragment
+        android:id="@+id/listWidgetsFragment"
+        android:name="com.neobis.ui.fragments.ListWidgetsFragment"
+        android:label="fragment_list_widgets"
+        tools:layout="@layout/fragment_list_widgets" />
+</navigation>
