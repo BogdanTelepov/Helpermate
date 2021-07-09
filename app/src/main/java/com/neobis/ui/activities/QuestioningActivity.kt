@@ -48,6 +48,12 @@ class QuestioningActivity : AppCompatActivity() {
         binding.textInputLayoutUserBirthday.setEndIconOnClickListener {
             // TODO: 25.06.2021  
         }
+
+        binding.btnNextScreen.setOnClickListener {
+            val intent = Intent(this, WidgetsActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

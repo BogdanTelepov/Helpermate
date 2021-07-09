@@ -9,5 +9,20 @@
         android:id="@+id/listWidgetsFragment"
         android:name="com.neobis.ui.fragments.ListWidgetsFragment"
         android:label="fragment_list_widgets"
-        tools:layout="@layout/fragment_list_widgets" />
+        tools:layout="@layout/fragment_list_widgets" >
+        <action
+            android:id="@+id/action_listWidgetsFragment_to_bottomSheetWidgetSleepFragment"
+            app:destination="@id/bottomSheetWidgetSleepFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bottomSheetWidgetSleepFragment"
+        android:name="com.neobis.ui.fragments.widgets.BottomSheetWidgetSleepFragment"
+        android:label="fragment_bottom_sheet_widget_sleep"
+        tools:layout="@layout/fragment_bottom_sheet_widget_sleep" >
+        <action
+            android:id="@+id/action_bottomSheetWidgetSleepFragment_to_listWidgetsFragment"
+            app:destination="@id/listWidgetsFragment"
+            app:popUpTo="@id/listWidgetsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

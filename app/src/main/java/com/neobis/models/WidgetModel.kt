@@ -5,9 +5,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class WidgetModel(
-    val widgetName: String,
-    val widgetIcon: Int,
-    val widgetColor: Int,
+    val id: Int?,
+    val widgetName: String?,
+    val widgetIcon: Int?,
+    val widgetColor: String?,
     val widgetDescription: String?
 
 ) : Parcelable

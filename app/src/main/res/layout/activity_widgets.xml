@@ -16,16 +16,31 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <androidx.fragment.app.FragmentContainerView
+    <TextView
+        android:id="@+id/tv_view1"
+        style="@style/headline_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="20dp"
+        android:text="Выбор виджетов"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+
+    <fragment
+        app:navGraph="@navigation/widgets_nav_graph"
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="32dp"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/tv_view1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

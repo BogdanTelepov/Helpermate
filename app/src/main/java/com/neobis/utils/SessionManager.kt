@@ -13,6 +13,32 @@ class SessionManager(context: Context) {
     companion object {
         const val IS_FINISHED = "isFinished"
         const val TYPE_OF_PERSON = "type_of_person"
+        const val USER_TOKEN = "user_token"
+        const val REFRESH_TOKEN = "refresh_token"
+    }
+
+    fun saveToken(token: String?) {
+        val editor = prefs.edit()
+        editor.putString(USER_TOKEN, token)
+        editor.apply()
+    }
+
+    fun saveRefreshToken(refreshToken: String?) {
+        val editor = prefs.edit()
+        editor.putString(REFRESH_TOKEN, refreshToken)
+        editor.apply()
+    }
+
+    fun fetchUserToken(): String? {
+        return prefs.getString(USER_TOKEN, null)
+    }
+
+    fun fetchRefreshToken(): String? {
+        return prefs.getString(REFRESH_TOKEN, null)
+    }
+
+    fun clearTokens() {
+        prefs.edit().remove(USER_TOKEN).remove(REFRESH_TOKEN).apply()
     }
 
     fun onBoardingFinished() {

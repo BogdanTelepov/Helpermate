@@ -45,7 +45,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Введите код подтвержения отправленный на test@test.com"
+        android:text="Введите код подтвержения отправленный на "
         android:textColor="@color/dark_gray"
         app:layout_constraintEnd_toEndOf="@id/tv_view1"
         app:layout_constraintStart_toStartOf="@id/tv_view1"

@@ -1,5 +1,6 @@
 package com.neobis.di
 
+import com.neobis.network.AuthorizationApi
 import com.neobis.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -28,7 +29,7 @@ object NetworkModule {
 
             val newRequest = chain.request()
                 .newBuilder()
-                .url(BASE_URL)
+                .url(newUrl)
                 .build()
             chain.proceed(newRequest)
         }
@@ -47,6 +48,12 @@ object NetworkModule {
 
     @Singleton
     @Provides
+    fun provideConverterFactory(): GsonConverterFactory {
+        return GsonConverterFactory.create()
+    }
+
+    @Singleton
+    @Provides
     fun provideRetrofitInstance(
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
@@ -58,5 +65,11 @@ object NetworkModule {
             .build()
     }
 
+
+    @Singleton
+    @Provides
+    fun provideAuthorizationApiService(retrofit: Retrofit): AuthorizationApi {
+        return retrofit.create(AuthorizationApi::class.java)
+    }
     // add api service
 }
