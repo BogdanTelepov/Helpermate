@@ -1,6 +1,7 @@
 package com.neobis.ui.fragments.widgets
 
 import android.app.Dialog
+import android.graphics.Rect
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,6 +11,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -78,6 +83,12 @@ class BottomSheetWidgetPharmacyFragment : BottomSheetDialogFragment(),
 
 
         binding.rvPharmacyList.adapter = pharmacyListAdapter
+
+        val divider = DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
+        divider.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_line)!!)
+        binding.rvPharmacyList.addItemDecoration(divider)
+
+
         pharmacyListAdapter.differ.submitList(listOfPharmacy.toList())
 
         Log.d("Pharm", listOfPharmacy.size.toString())

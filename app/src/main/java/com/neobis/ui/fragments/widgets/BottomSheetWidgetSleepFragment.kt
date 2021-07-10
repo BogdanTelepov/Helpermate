@@ -48,8 +48,19 @@ class BottomSheetWidgetSleepFragment : BottomSheetDialogFragment() {
         binding.textInputLayoutGoToBedTime.setEndIconOnClickListener {
             openTimePicker()
         }
+        binding.textInputLayoutWakeUpTime.setEndIconOnClickListener {
+            openTimePickerForWakeUp()
+        }
     }
 
+
+    private fun openTimePickerForWakeUp() {
+        val timePickerFragment = TimePickerFragment {
+            binding.etWakeUpTime.setText(it.toString().trim())
+        }
+
+        timePickerFragment.show(childFragmentManager, "timePickerWakeUp")
+    }
 
     private fun openTimePicker() {
         val timePicker = TimePickerFragment { time ->
@@ -61,9 +72,6 @@ class BottomSheetWidgetSleepFragment : BottomSheetDialogFragment() {
         timePicker.show(childFragmentManager, "timePicker")
     }
 
-    private fun ontTimeSelected(time: String) {
-
-    }
 
     // https://stackoverflow.com/questions/58065771/bottomsheetdialogfragment-full-screen
 
