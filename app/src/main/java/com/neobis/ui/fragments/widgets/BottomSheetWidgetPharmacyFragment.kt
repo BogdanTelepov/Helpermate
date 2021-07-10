@@ -2,24 +2,33 @@ package com.neobis.ui.fragments.widgets
 
 import android.app.Dialog
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.neobis.R
-import com.neobis.databinding.FragmentBottomSheetWidgetSleepBinding
-import com.neobis.ui.fragments.TimePickerFragment
+import com.neobis.adapters.PharmacyListAdapter
+import com.neobis.databinding.FragmentBottomSheetWidgetPharmacyBinding
+import com.neobis.models.PharmacyModel
+import com.neobis.utils.afterTextChanged
 
 
-class BottomSheetWidgetSleepFragment : BottomSheetDialogFragment() {
+class BottomSheetWidgetPharmacyFragment : BottomSheetDialogFragment(),
+    PharmacyListAdapter.OnItemClickListener {
 
-    private var _binding: FragmentBottomSheetWidgetSleepBinding? = null
+    private var _binding: FragmentBottomSheetWidgetPharmacyBinding? = null
     private val binding get() = _binding!!
+
+    private val pharmacyListAdapter: PharmacyListAdapter by lazy { PharmacyListAdapter(this) }
+
+    private val listOfPharmacy: ArrayList<PharmacyModel> by lazy { ArrayList() }
 
 
     override fun getTheme(): Int {
@@ -30,42 +39,57 @@ class BottomSheetWidgetSleepFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentBottomSheetWidgetSleepBinding.inflate(layoutInflater, container, false)
+        // Inflate the layout for this fragment
+        _binding =
+            FragmentBottomSheetWidgetPharmacyBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.tvCancel.setOnClickListener {
-            dismiss()
+
+
+        binding.etInputNamePharmacy.afterTextChanged { text ->
+            if (text.isEmpty()) {
+                binding.ivSearch.setImageResource(R.drawable.ic_search)
+                binding.ivSearch.isEnabled = false
+            } else {
+                binding.ivSearch.setImageResource(R.drawable.ic_search_orange)
+                binding.ivSearch.isEnabled = true
+
+            }
         }
+
         binding.tvSave.setOnClickListener {
             dismiss()
         }
 
-        binding.textInputLayoutGoToBedTime.setEndIconOnClickListener {
-            openTimePicker()
+        binding.tvCancel.setOnClickListener {
+            dismiss()
         }
-    }
 
-
-    private fun openTimePicker() {
-        val timePicker = TimePickerFragment { time ->
-            binding.etGoToBedTime.setText(time.trim())
-
+        binding.ivSearch.setOnClickListener {
+            listOfPharmacy.add(PharmacyModel(binding.etInputNamePharmacy.text.toString().trim()))
+            pharmacyListAdapter.differ.submitList(listOfPharmacy.toList())
 
         }
 
-        timePicker.show(childFragmentManager, "timePicker")
+
+
+        binding.rvPharmacyList.adapter = pharmacyListAdapter
+        pharmacyListAdapter.differ.submitList(listOfPharmacy.toList())
+
+        Log.d("Pharm", listOfPharmacy.size.toString())
+
     }
 
-    private fun ontTimeSelected(time: String) {
 
+    override fun deleteItem(pharmacyModel: PharmacyModel) {
+        listOfPharmacy.remove(pharmacyModel)
+        pharmacyListAdapter.differ.submitList(listOfPharmacy.toList())
     }
 
-    // https://stackoverflow.com/questions/58065771/bottomsheetdialogfragment-full-screen
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = BottomSheetDialog(requireContext(), theme)
@@ -92,5 +116,6 @@ class BottomSheetWidgetSleepFragment : BottomSheetDialogFragment() {
         super.onDestroyView()
         _binding = null
     }
+
 
 }

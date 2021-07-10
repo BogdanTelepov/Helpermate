@@ -10,6 +10,7 @@ import com.neobis.R
 
 import com.neobis.databinding.ActivityQuestioningBinding
 import com.neobis.ui.activities.registration.CreateAccountActivity
+import com.neobis.ui.fragments.DatePickerFragment
 import com.neobis.utils.Constants.TYPE_PEOPLE
 import com.neobis.utils.SessionManager
 
@@ -46,7 +47,7 @@ class QuestioningActivity : AppCompatActivity() {
         }
 
         binding.textInputLayoutUserBirthday.setEndIconOnClickListener {
-            // TODO: 25.06.2021  
+            showDatePickerDialog()
         }
 
         binding.btnNextScreen.setOnClickListener {
@@ -54,6 +55,18 @@ class QuestioningActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun showDatePickerDialog() {
+        val datePicker = DatePickerFragment { day, month, year ->
+            dateSelected(day, month, year)
+
+        }
+        datePicker.show(supportFragmentManager, "datePicker")
+    }
+
+    private fun dateSelected(day: Int, month: Int, year: Int) {
+        binding.etUserBirthday.setText("$day.${month + 1}.$year")
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -69,5 +69,9 @@
         <item name="android:background">@drawable/rectangle_rounded</item>
     </style>
 
+    <style name="TimePicker" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorAccent">@color/base_orange</item>
+    </style>
+
 
 </resources>

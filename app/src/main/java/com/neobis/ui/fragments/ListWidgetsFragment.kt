@@ -11,6 +11,8 @@ import com.neobis.R
 import com.neobis.adapters.WidgetListAdapter
 import com.neobis.databinding.FragmentListWidgetsBinding
 import com.neobis.models.WidgetModel
+import com.neobis.ui.activities.WidgetsActivity
+import com.neobis.ui.fragments.widgets.BottomSheetWidgetPharmacyFragment
 import com.neobis.ui.fragments.widgets.BottomSheetWidgetSleepFragment
 
 
@@ -34,6 +36,10 @@ class ListWidgetsFragment : Fragment() {
     @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.btnConfirmChoose.setOnClickListener {
+            (activity as WidgetsActivity).mainActivityTransition()
+        }
 
 
         val listOfWidgets: List<WidgetModel> = arrayListOf(
@@ -101,8 +107,13 @@ class ListWidgetsFragment : Fragment() {
 
             when (it.id) {
                 1 -> {
-                    val bottomSheet = BottomSheetWidgetSleepFragment()
+                    val bottomSheet: BottomSheetWidgetSleepFragment by lazy { BottomSheetWidgetSleepFragment() }
                     bottomSheet.show(childFragmentManager, "bottomSheet")
+                }
+
+                7 -> {
+                    val bottomSheetWidgetPharmacyFragment: BottomSheetWidgetPharmacyFragment by lazy { BottomSheetWidgetPharmacyFragment() }
+                    bottomSheetWidgetPharmacyFragment.show(childFragmentManager, "bottomSheetPharm")
                 }
             }
 

@@ -9,6 +9,7 @@ import android.text.Spanned
 
 import android.text.method.LinkMovementMethod
 import android.util.Log
+import androidx.activity.viewModels
 
 import com.neobis.R
 import com.neobis.databinding.ActivityCreateAccountBinding
@@ -21,6 +22,9 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CreateAccountActivity : AppCompatActivity() {
+
+    private val createAccountViewModel: CreateAccountViewModel by viewModels()
+
     private lateinit var binding: ActivityCreateAccountBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -108,5 +112,10 @@ class CreateAccountActivity : AppCompatActivity() {
             movementMethod = LinkMovementMethod.getInstance()
             highlightColor = Color.TRANSPARENT
         }
+    }
+
+
+    private fun register(){
+        
     }
 }

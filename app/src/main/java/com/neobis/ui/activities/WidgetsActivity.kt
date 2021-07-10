@@ -33,6 +33,11 @@ class WidgetsActivity : AppCompatActivity() {
 
     }
 
+    fun mainActivityTransition() {
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp()
     }
