@@ -11,11 +11,11 @@ class RemoteDataSource @Inject constructor(
 
 
     suspend fun register(registerRequest: RegisterRequest): Response<RegisterResponse> {
-        return authorizationApi.register(registerRequest)
+        return authorizationApi.registerStepOne(registerRequest)
     }
 
     suspend fun activationAccount(userActivateRequest: UserActivateRequest): Response<UserActivateResponse> {
-        return authorizationApi.activationAccount(userActivateRequest)
+        return authorizationApi.registerStepTwo(userActivateRequest)
     }
 
     suspend fun userLogin(userLoginRequest: UserLoginRequest): Response<UserLoginResponse> {
