@@ -7,6 +7,6 @@ data class RegisterRequest(
     val email: String,
     @SerializedName("password")
     val password: String,
-    @SerializedName("re_password")
-    val rePassword: String
+    @SerializedName("confirmPassword")
+    val confirmPassword: String
 )
