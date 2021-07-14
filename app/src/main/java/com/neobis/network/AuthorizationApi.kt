@@ -1,7 +1,8 @@
 package com.neobis.network
 
 import com.neobis.models.auth.*
-import dagger.Provides
+import com.neobis.utils.Constants.REGISTRATION_STEP_1
+
 
 import retrofit2.Response
 import retrofit2.http.Body
@@ -10,7 +11,7 @@ import retrofit2.http.POST
 
 interface AuthorizationApi {
 
-    @POST("/auth/register")
+    @POST(REGISTRATION_STEP_1)
     suspend fun register(@Body registerRequest: RegisterRequest): Response<RegisterResponse>
 
     @POST("/auth/activation")
