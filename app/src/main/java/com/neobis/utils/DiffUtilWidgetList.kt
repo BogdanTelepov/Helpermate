@@ -1,7 +1,7 @@
 package com.neobis.utils
 
 import androidx.recyclerview.widget.DiffUtil
-import com.neobis.models.WidgetModel
+import com.neobis.models.widgetModels.WidgetModel
 
 class DiffUtilWidgetList : DiffUtil.ItemCallback<WidgetModel>() {
 

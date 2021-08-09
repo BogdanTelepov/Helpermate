@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_view1"
+            style="@style/body_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="26dp"
+            android:text="День добрый,"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_userName"
+            style="@style/headline_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toStartOf="@id/tv_view1"
+            app:layout_constraintTop_toBottomOf="@id/tv_view1"
+            tools:text="User" />
+
+        <ImageView
+            android:id="@+id/iv_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:src="@drawable/ic_notification"
+            app:layout_constraintBottom_toBottomOf="@id/tv_view1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_view1" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            app:cardBackgroundColor="@color/base_orange"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="@id/iv_notifications"
+            app:layout_constraintStart_toStartOf="@id/tv_userName"
+            app:layout_constraintTop_toBottomOf="@id/tv_userName">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_view2"
+                    style="@style/body_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Вы запланировали на этот день"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_countNotifications"
+                    style="@style/button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="11dp"
+                    android:text="0 напоминаний"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tv_view2"
+                    app:layout_constraintTop_toBottomOf="@id/tv_view2" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_notification2"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_countNotifications"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_view2" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <TextView
+            android:id="@+id/tv_view3"
+            style="@style/headline_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Показатели на сегодня:"
+            app:layout_constraintStart_toStartOf="@id/cardView"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+
+            />
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="18dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_view3">
+
+
+            <com.google.android.material.card.MaterialCardView
+                app:cardBackgroundColor="@color/widget_sleep_color"
+                android:id="@+id/rootLayout_sleep_widget"
+                style="@style/widget_card_view"
+                android:layout_width="154dp"
+                android:layout_height="106dp"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/item_constraintLayout_sleep"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_image_sleep"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_widget_sleep"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/item_name_sleep"
+                        style="@style/active_widget_item"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Сон"
+                        android:textColor="@color/widget_text_color"
+                        app:layout_constraintBottom_toBottomOf="@id/item_image_sleep"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/item_image_sleep"
+                        app:layout_constraintTop_toTopOf="@id/item_image_sleep" />
+
+                    <TextView
+                        android:id="@+id/tv_lastActivity_sleep"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintEnd_toEndOf="@id/item_name_sleep"
+                        app:layout_constraintStart_toStartOf="@id/item_image_sleep"
+                        app:layout_constraintTop_toBottomOf="@id/item_image_sleep"
+                        tools:text="15 ед" />
+
+                    <TextView
+                        android:id="@+id/item_description_sleep"
+                        style="@style/widget_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="@id/tv_lastActivity_sleep"
+                        app:layout_constraintTop_toBottomOf="@id/tv_lastActivity_sleep"
+                        tools:text="00:00 – 08:00" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.card.MaterialCardView
+                app:cardBackgroundColor="@color/widget_sugar_color"
+                android:id="@+id/rootLayout_sugar_widget"
+                style="@style/widget_card_view"
+                android:layout_width="154dp"
+                android:layout_height="106dp"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/item_constraintLayout_sugar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_image_sugar"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_widget_sugar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/item_name_sugar"
+                        style="@style/active_widget_item"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Сахар"
+                        android:textColor="@color/widget_text_color"
+                        app:layout_constraintBottom_toBottomOf="@id/item_image_sugar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/item_image_sugar"
+                        app:layout_constraintTop_toTopOf="@id/item_image_sugar" />
+
+                    <TextView
+                        android:id="@+id/tv_lastActivity_sugar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintEnd_toEndOf="@id/item_name_sugar"
+                        app:layout_constraintStart_toStartOf="@id/item_image_sugar"
+                        app:layout_constraintTop_toBottomOf="@id/item_image_sugar"
+                        tools:text="15 ед" />
+
+                    <TextView
+                        android:id="@+id/item_description_sugar"
+                        style="@style/widget_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="@id/tv_lastActivity_sugar"
+                        app:layout_constraintTop_toBottomOf="@id/tv_lastActivity_sugar"
+                        tools:text="00:00 – 08:00" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/linearLayout1"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout1"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout1">
+
+
+            <com.google.android.material.card.MaterialCardView
+                app:cardBackgroundColor="@color/widget_pharmacy_color"
+                android:id="@+id/rootLayout_pharmacy_widget"
+                style="@style/widget_card_view"
+                android:layout_width="154dp"
+                android:layout_height="106dp"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/item_constraintLayout_pharmacy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_image_pharmacy"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_widget_pharmacy"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/item_name_pharmacy"
+                        style="@style/active_widget_item"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Лекарства"
+                        android:textColor="@color/widget_text_color"
+                        app:layout_constraintBottom_toBottomOf="@id/item_image_pharmacy"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/item_image_pharmacy"
+                        app:layout_constraintTop_toTopOf="@id/item_image_pharmacy" />
+
+                    <TextView
+                        android:id="@+id/tv_lastActivity_pharmacy"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintEnd_toEndOf="@id/item_name_pharmacy"
+                        app:layout_constraintStart_toStartOf="@id/item_image_pharmacy"
+                        app:layout_constraintTop_toBottomOf="@id/item_name_pharmacy"
+                        tools:text="15 ед" />
+
+                    <TextView
+                        android:id="@+id/item_description_pharmacy"
+                        style="@style/widget_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="@id/tv_lastActivity_pharmacy"
+                        app:layout_constraintTop_toBottomOf="@id/tv_lastActivity_pharmacy"
+                        tools:text="00:00 – 08:00" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.card.MaterialCardView
+                app:cardBackgroundColor="@color/widget_pressure_color"
+                android:id="@+id/rootLayout_pressure_widget"
+                style="@style/widget_card_view"
+                android:layout_width="154dp"
+                android:layout_height="106dp"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/item_constraintLayout_pressure"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_image_pressure"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_widget_pressure"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/item_name_pressure"
+                        style="@style/active_widget_item"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Давление"
+                        android:textColor="@color/widget_text_color"
+                        app:layout_constraintBottom_toBottomOf="@id/item_image_pressure"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/item_image_pressure"
+                        app:layout_constraintTop_toTopOf="@id/item_image_pressure" />
+
+                    <TextView
+                        android:id="@+id/tv_lastActivity_pressure"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintEnd_toEndOf="@id/item_name_pressure"
+                        app:layout_constraintStart_toStartOf="@id/item_image_pressure"
+                        app:layout_constraintTop_toBottomOf="@id/item_image_pressure"
+                        tools:text="15 ед" />
+
+                    <TextView
+                        android:id="@+id/item_description_pressure"
+                        style="@style/widget_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="@id/tv_lastActivity_pressure"
+                        app:layout_constraintTop_toBottomOf="@id/tv_lastActivity_pressure"
+                        tools:text="00:00 – 08:00" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/linearLayout2"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout2">
+
+            <com.google.android.material.card.MaterialCardView
+                app:cardBackgroundColor="@color/widget_food_color"
+                android:id="@+id/rootLayout_food_widget"
+                style="@style/widget_card_view"
+                android:layout_width="154dp"
+                android:layout_height="106dp"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/item_constraintLayout_food"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_image_food"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_widget_foods"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/item_name_food"
+                        style="@style/active_widget_item"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Еда"
+                        android:textColor="@color/widget_text_color"
+                        app:layout_constraintBottom_toBottomOf="@id/item_image_food"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/item_image_food"
+                        app:layout_constraintTop_toTopOf="@id/item_image_food" />
+
+                    <TextView
+                        android:id="@+id/tv_lastActivity_food"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintEnd_toEndOf="@id/item_name_food"
+                        app:layout_constraintStart_toStartOf="@id/item_image_food"
+                        app:layout_constraintTop_toBottomOf="@id/item_name_food"
+                        tools:text="15 ед" />
+
+                    <TextView
+                        android:id="@+id/item_description_food"
+                        style="@style/widget_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="@id/tv_lastActivity_food"
+                        app:layout_constraintTop_toBottomOf="@id/tv_lastActivity_food"
+                        tools:text="00:00 – 08:00" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.card.MaterialCardView
+                app:cardBackgroundColor="@color/widget_activities_color"
+                android:id="@+id/rootLayout_ac_widget"
+                style="@style/widget_card_view"
+                android:layout_width="154dp"
+                android:layout_height="106dp"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/item_constraintLayout_activities"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_image_activities"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_widget_activities"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/item_name_activities"
+                        style="@style/active_widget_item"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Активности"
+                        android:textColor="@color/widget_text_color"
+                        app:layout_constraintBottom_toBottomOf="@id/item_image_activities"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/item_image_activities"
+                        app:layout_constraintTop_toTopOf="@id/item_image_activities" />
+
+                    <TextView
+                        android:id="@+id/tv_lastActivity_activities"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintEnd_toEndOf="@id/item_name_activities"
+                        app:layout_constraintStart_toStartOf="@id/item_image_activities"
+                        app:layout_constraintTop_toBottomOf="@id/item_image_activities"
+                        tools:text="15 ед" />
+
+                    <TextView
+                        android:id="@+id/item_description_activities"
+                        style="@style/widget_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="@id/tv_lastActivity_activities"
+                        app:layout_constraintTop_toBottomOf="@id/tv_lastActivity_activities"
+                        tools:text="00:00 – 08:00" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </LinearLayout>
+
+        <Space
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

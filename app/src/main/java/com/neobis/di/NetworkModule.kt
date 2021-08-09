@@ -1,13 +1,21 @@
 package com.neobis.di
 
+import android.content.Context
 import com.neobis.network.AuthorizationApi
+import com.neobis.network.ServiceInterceptor
+import com.neobis.network.UserApi
+import com.neobis.network.WidgetsApi
 import com.neobis.utils.Constants.BASE_URL
+import com.neobis.utils.MyApplication
+import com.neobis.utils.SessionManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -22,17 +30,9 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideAuthInterceptor(): Interceptor {
-        return Interceptor { chain ->
-            val newUrl = chain.request().url
-                .newBuilder()
-                .build()
+        return ServiceInterceptor()
 
-            val newRequest = chain.request()
-                .newBuilder()
-                .url(newUrl)
-                .build()
-            chain.proceed(newRequest)
-        }
+
     }
 
     @Singleton
@@ -70,6 +70,18 @@ object NetworkModule {
     @Provides
     fun provideAuthorizationApiService(retrofit: Retrofit): AuthorizationApi {
         return retrofit.create(AuthorizationApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideWidgetsApiService(retrofit: Retrofit):WidgetsApi{
+        return retrofit.create(WidgetsApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideUserApi(retrofit: Retrofit):UserApi{
+        return retrofit.create(UserApi::class.java)
     }
     // add api service
 }

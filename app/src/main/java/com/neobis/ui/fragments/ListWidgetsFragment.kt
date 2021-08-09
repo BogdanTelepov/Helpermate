@@ -1,26 +1,38 @@
 package com.neobis.ui.fragments
 
+
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.neobis.R
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+
+
 import com.neobis.adapters.WidgetListAdapter
 import com.neobis.databinding.FragmentListWidgetsBinding
-import com.neobis.models.WidgetModel
+
 import com.neobis.ui.activities.WidgetsActivity
-import com.neobis.ui.fragments.widgets.BottomSheetWidgetPharmacyFragment
-import com.neobis.ui.fragments.widgets.BottomSheetWidgetSleepFragment
+import com.neobis.utils.NetworkResult
+import com.neobis.utils.hideProgress
+import com.neobis.utils.showProgress
+import com.neobis.viewModels.ListWidgetsFragmentViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ListWidgetsFragment : Fragment() {
     private var _binding: FragmentListWidgetsBinding? = null
     private val binding get() = _binding!!
 
     private val widgetListAdapter: WidgetListAdapter by lazy { WidgetListAdapter() }
+
+    private val listWidgetsFragmentViewModel: ListWidgetsFragmentViewModel by viewModels()
+
+
+
+
 
 
     override fun onCreateView(
@@ -37,88 +49,48 @@ class ListWidgetsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
+
         binding.btnConfirmChoose.setOnClickListener {
             (activity as WidgetsActivity).mainActivityTransition()
         }
 
 
-        val listOfWidgets: List<WidgetModel> = arrayListOf(
-            WidgetModel(
-                1,
-                "Сон",
-                R.drawable.ic_widget_sleep,
-                resources.getString(R.color.widget_sleep_color),
-                null
-            ),
-            WidgetModel(
-                2,
-                "Еда",
-                R.drawable.ic_widget_foods,
-                resources.getString(R.color.widget_food_color),
-                null
-            ),
-            WidgetModel(
-                3,
-                "Давление",
-                R.drawable.ic_widget_pressure,
-                resources.getString(R.color.widget_pressure_color),
-                null
-            ),
-            WidgetModel(
-                4,
-                "Инсулин",
-                R.drawable.ic_widget_insulin,
-                resources.getString(R.color.widget_insulin_color),
-                null
-            ),
-            WidgetModel(
-                5,
-                "Активность",
-                R.drawable.ic_widget_activities,
-                resources.getString(R.color.widget_activities_color),
-                null
-            ),
-            WidgetModel(
-                6,
-                "Вода",
-                R.drawable.ic_widget_water,
-                resources.getString(R.color.widget_water_color),
-                null
-            ),
-            WidgetModel(
-                7,
-                "Лекарства",
-                R.drawable.ic_widget_pharmacy,
-                resources.getString(R.color.widget_pharmacy_color),
-                null
-            ),
-            WidgetModel(
-                8,
-                "Сахар",
-                R.drawable.ic_widget_sugar,
-                resources.getString(R.color.widget_sugar_color),
-                null
-            )
-        )
+
 
         binding.rvWidgetList.adapter = widgetListAdapter
-        widgetListAdapter.differ.submitList(listOfWidgets.toList())
-        widgetListAdapter.setOnClick {
 
-            when (it.id) {
-                1 -> {
-                    val bottomSheet: BottomSheetWidgetSleepFragment by lazy { BottomSheetWidgetSleepFragment() }
-                    bottomSheet.show(childFragmentManager, "bottomSheet")
+
+
+
+
+    }
+
+
+    private fun fetchWidgetList() {
+        listWidgetsFragmentViewModel.getListWidgets()
+        listWidgetsFragmentViewModel.responseWidgetListItem.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is NetworkResult.Success -> {
+                    binding.progressBar.hideProgress()
+                    widgetListAdapter.differ.submitList(response.data?.toMutableList())
                 }
-
-                7 -> {
-                    val bottomSheetWidgetPharmacyFragment: BottomSheetWidgetPharmacyFragment by lazy { BottomSheetWidgetPharmacyFragment() }
-                    bottomSheetWidgetPharmacyFragment.show(childFragmentManager, "bottomSheetPharm")
+                is NetworkResult.Error -> {
+                    binding.progressBar.hideProgress()
+                    Toast.makeText(
+                        requireContext(),
+                        response.message.toString(),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                is NetworkResult.Loading -> {
+                    binding.progressBar.showProgress()
                 }
             }
 
-        }
 
+        }
     }
 
     override fun onDestroyView() {

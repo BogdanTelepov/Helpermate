@@ -9,7 +9,7 @@ import androidx.fragment.app.DialogFragment
 import com.neobis.R
 import java.util.*
 
-class TimePickerFragment(val listener: (String) -> Unit) : DialogFragment(),
+class TimePickerFragment(val listener: (hourOfDay: Int, minute: Int) -> Unit) : DialogFragment(),
     TimePickerDialog.OnTimeSetListener {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -24,6 +24,6 @@ class TimePickerFragment(val listener: (String) -> Unit) : DialogFragment(),
     }
 
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-        listener("$hourOfDay:$minute")
+        listener(hourOfDay, minute)
     }
 }

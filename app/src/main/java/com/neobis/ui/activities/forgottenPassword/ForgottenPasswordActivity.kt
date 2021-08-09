@@ -1,33 +1,36 @@
 package com.neobis.ui.activities.forgottenPassword
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.neobis.R
 import com.neobis.databinding.ActivityForgottenPasswordBinding
+import com.neobis.models.auth.RestorePasswordStepOneRequest
+import com.neobis.utils.Constants.USER_EMAIL
+import com.neobis.utils.CustomLogger
+
+import com.neobis.utils.NetworkResult
 import com.neobis.utils.listenChanges
+import com.neobis.viewModels.ForgottenPasswordActivityViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
+class ForgottenPasswordActivity : AppCompatActivity(), CustomLogger {
 
-class ForgottenPasswordActivity : AppCompatActivity() {
+    override val TAG: String
+        get() = ForgottenPasswordActivity::class.java.simpleName
 
-    companion object {
-        val TAG = ForgottenPasswordActivity::class.simpleName.toString()
-    }
 
     private lateinit var binding: ActivityForgottenPasswordBinding
 
-//    private val textWatcher: TextWatcher = object : SimpleTextWatcher() {
-//        override fun afterTextChanged(s: Editable?) {
-//            val input = s.toString().trim()
-//            if (input.endsWith("@g")) {
-//                val fullMail = "${input}mail.com"
-//                setText(fullMail)
-//            }
-//        }
-//    }
+    private val forgottenPasswordActivityViewModel: ForgottenPasswordActivityViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,22 +55,60 @@ class ForgottenPasswordActivity : AppCompatActivity() {
         }
 
         binding.btnSendCode.setOnClickListener {
-            if (binding.textInputEditTextEmail.text.isNullOrEmpty()) {
-                binding.textInputLayoutEmail.error = "Поле не должно быть пустым"
-                return@setOnClickListener
-            } else {
-                val intent = Intent(this, ConfirmResetCodeActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
-
+            sendCode()
 
         }
     }
 
+    private fun sendCode() {
+        val email = binding.textInputEditTextEmail.text.toString().trim()
+
+        if (email.isEmpty()) {
+            binding.textInputLayoutEmail.error = "Поле не должно быть пустым"
+            return
+        }
+
+        val restorePasswordStepOneRequest: RestorePasswordStepOneRequest by lazy {
+            RestorePasswordStepOneRequest(
+                email
+            )
+        }
+
+        forgottenPasswordActivityViewModel.restorePasswordStepOne(restorePasswordStepOneRequest)
+        forgottenPasswordActivityViewModel.restorePasswordStepOneResponse.observe(this) { response ->
+            when (response) {
+                is NetworkResult.Success -> {
+                    binding.progressBar.visibility = View.GONE
 
 
+                }
+                is NetworkResult.Error -> {
+                    binding.progressBar.visibility = View.GONE
+                    Toast.makeText(this, response.message.toString(), Toast.LENGTH_SHORT).show()
 
+
+                }
+
+                is NetworkResult.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+            }
+        }
+
+        val intent = Intent(this, ConfirmResetCodeActivity::class.java)
+        intent.putExtras(Bundle().apply {
+            putString(USER_EMAIL, email)
+        })
+        startActivity(intent)
+        finish()
+
+
+    }
+
+
+    override fun showLog(message: String) {
+        Log.d(TAG, message)
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {

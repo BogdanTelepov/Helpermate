@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.QuestioningActivity">
+    tools:context=".ui.activities.registration.QuestioningActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -141,7 +141,7 @@
                 android:id="@+id/rb_male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:checked="true"
                 android:buttonTint="@color/base_orange"
                 android:text="Мужской" />
 
@@ -262,7 +262,7 @@
                 android:id="@+id/rb_firstType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:checked="true"
                 android:buttonTint="@color/base_orange"
                 android:text="1 тип" />
 

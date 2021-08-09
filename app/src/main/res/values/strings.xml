@@ -1,10 +1,18 @@
 <resources>
     <string name="app_name">TraDa</string>
+
+    <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+
+
+    <string name="no_internet_connection">Нет интернет соединения</string>
+
+    <string name="error_message">Что то пошло не так</string>
+
     <string name="forgotten_password">Восстановление пароля</string>
 
     <string name="invalid_email_error">Некорректная почта</string>
     <string name="back">Назад</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tv1_firstOnBoarding">Отслеживай прогресс</string>
     <string name="tv_description_firstOnBoarding">Выбирай нужные показатели и добавляй свои записи в историю дневника</string>
@@ -24,4 +32,5 @@
         Cайт использует сервисы веб-аналитики Яндекс.Метрика. Собранная при помощи cookie информация не может идентифицировать Пользователя, при этом направлена на улучшение работы сайта. Информация об использовании Сайта, собранная при помощи cookie, будет передаваться Яндексу для обработки и оценки использования Сайта, составления отчетов о деятельности Сайта.</string>
     <string name="tv_agree_private_policy_full">Я согласен с условиями пользовательского соглашения</string>
     <string name="tv_agree_private_policy">пользовательского соглашения</string>
+    <string name="norma_sugar"><![CDATA[<> нормы]]></string>
 </resources>

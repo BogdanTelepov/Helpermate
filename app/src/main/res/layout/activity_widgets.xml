@@ -29,18 +29,331 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
 
-    <fragment
-        app:navGraph="@navigation/widgets_nav_graph"
-        android:id="@+id/fragmentContainerView"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="32dp"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="18dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_view1" />
+        app:layout_constraintTop_toBottomOf="@id/tv_view1">
+
+        <com.google.android.material.card.MaterialCardView
+
+            android:id="@+id/rootLayout_sleep_widget"
+
+            style="@style/widget_card_view"
+            android:layout_width="154dp"
+            android:layout_height="149dp"
+            android:layout_margin="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/widget_sleep_color"
+            app:cardCornerRadius="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/item_constraintLayout_sleep"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/item_image_sleep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_widget_sleep"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_checkStatus_sleep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_check"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/item_name_sleep"
+                    style="@style/headline_3"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Сон"
+                    android:textColor="@color/widget_text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/item_image_sleep"
+                    app:layout_constraintTop_toBottomOf="@id/item_image_sleep" />
+
+                <TextView
+                    android:id="@+id/item_description_sleep"
+                    style="@style/widget_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="@id/item_name_sleep"
+                    app:layout_constraintTop_toBottomOf="@id/item_name_sleep"
+                    tools:text="00:00 – 08:00" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/rootLayout_pharmacy_widget"
+            style="@style/widget_card_view"
+            android:layout_width="154dp"
+            android:layout_height="149dp"
+            android:layout_margin="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/widget_pharmacy_color"
+            app:cardCornerRadius="16dp"
+
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/item_constraintLayout_pharmacy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/item_image_pharmacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_widget_pharmacy"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_checkStatus_pharmacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_check"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/item_name_pharmacy"
+                    style="@style/headline_3"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Лекарства"
+                    android:textColor="@color/widget_text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/item_image_pharmacy"
+                    app:layout_constraintTop_toBottomOf="@id/item_image_pharmacy" />
+
+                <TextView
+                    android:id="@+id/item_description_pharmacy"
+                    style="@style/widget_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="@id/item_name_pharmacy"
+                    app:layout_constraintTop_toBottomOf="@id/item_name_pharmacy"
+                    tools:text="2 шт." />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/linearLayout1"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout1"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout1">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/rootLayout_sugar_widget"
+            style="@style/widget_card_view"
+            android:layout_width="154dp"
+            android:layout_height="149dp"
+            android:layout_margin="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/widget_sugar_color"
+            app:cardCornerRadius="16dp"
+
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/item_constraintLayout_sugar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/item_image_sugar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_widget_sugar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_checkStatus_sugar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_check"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/item_name_sugar"
+                    style="@style/headline_3"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Сахар"
+                    android:textColor="@color/widget_text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/item_image_sugar"
+                    app:layout_constraintTop_toBottomOf="@id/item_image_sugar" />
+
+                <TextView
+                    android:id="@+id/item_description_sugar"
+                    style="@style/widget_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="@id/item_name_sugar"
+                    app:layout_constraintTop_toBottomOf="@id/item_name_sugar"
+                    tools:text="3.2 ммоль/л" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/rootLayout_pressure_widget"
+            style="@style/widget_card_view"
+            android:layout_width="154dp"
+            android:layout_height="149dp"
+            android:layout_margin="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/widget_pressure_color"
+            app:cardCornerRadius="16dp"
+
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/item_constraintLayout_pressure"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/item_image_pressure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_widget_pressure"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_checkStatus_pressure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_check"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/item_name_pressure"
+                    style="@style/headline_3"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Давление"
+                    android:textColor="@color/widget_text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/item_image_pressure"
+                    app:layout_constraintTop_toBottomOf="@id/item_image_pressure" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_confirmChoose"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/base_orange"
+        android:text="Подтверждаю выбор"
+        android:textAllCaps="false"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

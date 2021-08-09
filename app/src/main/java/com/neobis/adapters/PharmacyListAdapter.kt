@@ -1,15 +1,17 @@
 package com.neobis.adapters
 
 import android.view.LayoutInflater
-import android.view.View
+
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.neobis.R
-import com.neobis.models.PharmacyModel
+
+import com.neobis.databinding.PharmacyItemLayoutBinding
+
+import com.neobis.models.widgetModels.PharmacyModel
+
 
 class PharmacyListAdapter(private val listener: OnItemClickListener) :
     RecyclerView.Adapter<PharmacyListAdapter.PharmacyViewHolder>() {
@@ -27,16 +29,26 @@ class PharmacyListAdapter(private val listener: OnItemClickListener) :
 
     val differ = AsyncListDiffer(this, differCallback)
 
+
+    class PharmacyViewHolder(val binding: PharmacyItemLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root)
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PharmacyViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.pharmacy_item_layout, parent, false)
-        return PharmacyViewHolder(view)
+
+        return PharmacyViewHolder(
+            PharmacyItemLayoutBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: PharmacyViewHolder, position: Int) {
         val currentItem = differ.currentList[position]
-        holder.itemName.text = currentItem.name
-        holder.itemDelete.setOnClickListener {
+        holder.binding.itemPharmacyName.text = currentItem.name
+        holder.binding.ivDeleteItem.setOnClickListener {
             listener.deleteItem(currentItem)
         }
     }
@@ -45,14 +57,6 @@ class PharmacyListAdapter(private val listener: OnItemClickListener) :
         return differ.currentList.size
     }
 
-
-    inner class PharmacyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-        val itemName: TextView = view.findViewById(R.id.item_pharmacy_name)
-        val itemDelete: ImageView = view.findViewById(R.id.iv_delete_item)
-
-
-    }
 
     interface OnItemClickListener {
         fun deleteItem(pharmacyModel: PharmacyModel)

@@ -35,7 +35,7 @@ class ThirdOnBoardingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnNextFragment.setOnClickListener {
             (activity as OnBoardingActivity).authActivityTransition()
-         //   sessionManager.onBoardingFinished()
+            sessionManager.onBoardingFinished()
         }
 
 

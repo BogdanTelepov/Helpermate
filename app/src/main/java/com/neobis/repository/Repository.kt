@@ -5,8 +5,12 @@ import javax.inject.Inject
 
 @ViewModelScoped
 class Repository @Inject constructor(
-    remoteDataSource: RemoteDataSource
+    authorizationRepository: AuthorizationRepository,
+    widgetsRepository: WidgetsRepository,
+    userRepository: UserRepository
 ) {
 
-    val remote = remoteDataSource
+    val authRepository = authorizationRepository
+    val widgetRepository = widgetsRepository
+    val userRep = userRepository
 }

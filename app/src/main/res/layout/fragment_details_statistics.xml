@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".ui.fragments.details.viewPagerFragments.DetailsStatisticsFragment">
+
+
+    <com.google.android.material.chip.ChipGroup
+
+
+        android:id="@+id/chip_group_masse"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="18dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:singleSelection="true">
+
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_bju"
+                style="@style/customChipStyle"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+
+                android:text="БЖУ"
+                android:textAlignment="center" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_kkal"
+                style="@style/customChipStyle"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+
+                android:text="ККал"
+                android:textAlignment="center" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_xe"
+                style="@style/customChipStyle"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+
+                android:text="ХЕ"
+                android:textAlignment="center" />
+
+
+
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="18dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/chip_group_masse"
+        app:layout_constraintStart_toStartOf="@id/chip_group_masse"
+        app:layout_constraintTop_toBottomOf="@id/chip_group_masse"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+
+            android:id="@+id/chip_day"
+            style="@style/customChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="День" />
+
+        <com.google.android.material.chip.Chip
+
+            android:id="@+id/chip_week"
+            style="@style/customChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Неделя" />
+
+        <com.google.android.material.chip.Chip
+
+            android:id="@+id/chip_month"
+            style="@style/customChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Месяц" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_year"
+            style="@style/customChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Год" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chip_group_date" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
